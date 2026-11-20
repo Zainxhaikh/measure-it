@@ -81,6 +81,15 @@ A U-Net-style segmentation architecture with a ResNet-18 encoder is implemented 
 
 The model predicts a binary mask for the playing card.
 
+### Model Weights Verification
+
+Model checkpoint: `weights/best_card_segmentation.pth`
+
+SHA-256 checksum:
+
+```text
+0a58d4004894c04b7f2ec29e76bdc27d66f1690970578eef8dd54c22526e4a1f
+
 ### Held-out test results
 
 | Metric | Result |
