@@ -1,0 +1,7 @@
+SEGMENTATION TEST RESULTS
+=========================
+Test images: 9
+IoU: 0.9811
+Precision: 0.9935
+Recall: 0.9874
+Dice: 0.9905

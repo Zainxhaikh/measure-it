@@ -1,26 +1,30 @@
 
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
-*.pyo
+*.log
 
 # Virtual environments
-venv/
 .venv/
+venv/
 env/
-ENV/
 
 # Jupyter
 .ipynb_checkpoints/
 
-# VS Code
+# IDE files
 .vscode/
+.idea/
 
-# Operating system
+# Operating system files
 .DS_Store
 Thumbs.db
-desktop.ini
+
+# Model checkpoints
+*.pth
+!weights/*.pth
+*.pt
 
 # Temporary files
 *.tmp
-*.log
+*.bak
