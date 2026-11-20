@@ -64,3 +64,19 @@ To be completed after selecting and evaluating the second measurable objective.
 ## 8. Final Conclusion
 
 To be completed after all experiments and validation are finished.
+
+## Additional Reliability Testing
+
+Five reliability scenarios were executed using simulated inputs through the `check_measurement_reliability()` function.
+
+| Test scenario | Expected result | Actual result |
+|---|---|---|
+| Normal lighting and low tilt | Reliable | PASS |
+| Low confidence (simulated poor lighting) | Rejected | PASS |
+| Partial reference marker (simulated incomplete marker) | Rejected | PASS |
+| High camera tilt | Rejected | PASS |
+| Very small detected card | Rejected | PASS |
+
+**Result:** 5 out of 5 simulated reliability tests passed.
+
+**Limitation:** These tests validate the reliability-checking logic using controlled inputs. They do not represent physical camera tests under actual poor lighting, partial marker occlusion, or high-tilt conditions. Further real-world validation is required.

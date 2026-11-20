@@ -61,15 +61,41 @@ def run_adverse_tests():
         },
     ]
 
-    print("ADVERSE CONDITION TEST PLAN")
-    print("===========================")
+    passed = 0
+
+    print("ADVERSE CONDITION RELIABILITY TESTS")
+    print("===================================")
 
     for test in tests:
-        print(f"\nTest: {test['name']}")
-        print(f"Expected reliable: {test['expected_reliable']}")
+        expected = test["expected_reliable"]
 
-    print("\nAdverse-condition test cases prepared.")
-    print("Actual image-based testing will be performed later.")
+        result = check_measurement_reliability(
+            confidence=test["confidence"],
+            marker_detected=test["marker_detected"],
+            marker_corner_count=test["marker_corner_count"],
+            card_area=test["card_area"],
+            image_area=test["image_area"],
+            pixels_per_mm=test["pixels_per_mm"],
+            tilt_angle=test["tilt_angle"],
+        )
+
+        success = result["reliable"] == expected
+
+        if success:
+            passed += 1
+
+        print(f"\n{test['name']}: {'PASS' if success else 'FAIL'}")
+        print(f"Expected reliable: {expected}")
+        print(f"Actual reliable: {result['reliable']}")
+
+        for reason in result["reasons"]:
+            print(f"- {reason}")
+
+    print("\n===================================")
+    print(f"Tests passed: {passed}/{len(tests)}")
+
+    if passed != len(tests):
+        raise SystemExit("Some adverse-condition tests failed.")
 
 
 if __name__ == "__main__":
