@@ -1,176 +1,277 @@
+
 # Measure It: Segment It, Measure It, Prove It
+
+A computer vision project that detects and segments a playing card and estimates its physical width and height in millimetres using a known-size ArUco marker.
 
 ## Project Overview
 
-Measure It is a computer vision project that detects, segments, and measures a playing card from an image. It combines camera calibration, deep-learning-based image segmentation, and a known-size ArUco reference marker to estimate the physical dimensions of the card in millimetres.
+Measure It is a computer vision system designed to measure the physical dimensions of a playing card from an image.
 
-The system performs the following tasks:
+The system combines camera calibration, image undistortion, deep learning-based card segmentation, ArUco marker detection, and geometric measurement.
 
-- Corrects camera lens distortion.
-- Segments the playing card from the background.
-- Detects a reference marker with a known physical size.
-- Estimates the card's width and height in millimetres.
-- Checks measurement reliability.
-- Generates visual measurement overlays and confidence information.
+A 30 mm ArUco marker is used as a known-size reference to convert image measurements into real-world dimensions.
 
-## Technologies Used
+## Key Features
 
-- Python 3.12
-- OpenCV
-- PyTorch
-- Torchvision
-- NumPy
-- Matplotlib
-- Pandas
-- Scikit-learn
+- Camera calibration using ChArUco board images.
+- Lens distortion correction.
+- Playing card segmentation using U-Net with a ResNet-18 encoder.
+- ArUco marker detection using OpenCV.
+- Physical width and height estimation in millimetres.
+- Batch measurement of multiple images.
+- Segmentation performance evaluation.
+- Comparison against manual measurements.
+- Reliability checks for challenging detection conditions.
 
-## Project Structure
+## Project Objectives
 
-```text
-measure-it/
-├── calibration/
-│   └── images/
-├── dataset/
-│   ├── images/
-│   ├── masks/
-│   └── splits/
-├── src/
-│   ├── calibration/
-│   ├── segmentation/
-│   └── measurement/
-├── weights/
-├── results/
-├── docs/
-├── .gitattributes
-├── .gitignore
-├── README.md
-├── requirements.txt
-└── environment.yml
-```
+1. Calibrate the camera and correct lens distortion.
+2. Segment playing cards from input images.
+3. Detect a known-size ArUco marker.
+4. Estimate card dimensions in millimetres.
+5. Evaluate segmentation and measurement accuracy.
+6. Validate system reliability through additional tests.
 
 ## Dataset
 
-The project uses 83 self-captured images of a 10 of Diamonds playing card.
+The dataset contains 83 self-captured images of playing cards.
 
-### Dataset Split
-
-| Dataset | Images |
+| Dataset Split | Images |
 |---|---:|
 | Training | 58 |
 | Validation | 16 |
 | Testing | 9 |
-| **Total** | **83** |
+| Total | 83 |
 
-All 83 images have corresponding manually annotated segmentation masks.
-
-The dataset is divided into training, validation, and testing sets using an approximate 70/20/10 split.
-
-The split lists are stored in:
-
-```text
-dataset/splits/
-```
-
-## Physical Measurement Reference
-
-The physical reference dimensions used for measurement validation are:
-
-| Object | Physical Dimension |
-|---|---:|
-| Playing card width | 57 mm |
-| Playing card height | 86 mm |
-| ArUco marker size | 30 × 30 mm |
-
-The playing card dimensions were measured manually using a ruler and checked multiple times.
-
-The ArUco marker's physical size is measured across its outer black square boundary, excluding the white margin.
-
-The marker uses:
-
-- Dictionary: `DICT_6X6_250`
-- Marker ID: `10`
-- Physical size: `30 mm`
+- Random seed: 42
+- Each image has a corresponding segmentation mask.
+- The dataset is divided into training, validation, and testing subsets.
 
 ## Camera Calibration
 
-Camera calibration uses ChArUco board images and OpenCV to estimate camera parameters and reduce lens distortion.
-
-### Calibration Configuration
+Camera calibration was performed using a ChArUco board.
 
 | Parameter | Value |
 |---|---|
-| Board | 5 × 7 squares |
-| Square size | 25 mm |
-| Marker size | 18 mm |
-| Calibration image resolution | 3072 × 4096 |
-| Total calibration images | 45 |
+| Board dimensions | 5 × 7 squares |
+| Square length | 25 mm |
+| Marker length | 18 mm |
+| Calibration images captured | 45 |
 | Accepted images | 35 |
 | Skipped images | 10 |
+| Image resolution | 3072 × 4096 |
+| Calibration approach | Portrait-only |
+| Distortion coefficient k3 | Fixed at 0 |
+| Alpha | 0.0 |
 | RMS reprojection error | 2.1247 pixels |
-| Mean point reprojection error | 1.4205 pixels |
-| Calibration configuration | k3 fixed to zero |
-| Undistortion alpha | 0.0 |
+| Mean reprojection error | 1.4205 pixels |
 
-### Calibration Parameters
+The resulting calibration parameters are saved in:
 
-The saved camera matrix and distortion coefficients are available at:
+`results/calibration/k3_fixed_zero/`
 
-```text
-results/calibration/k3_fixed_zero/camera_calibration.npz
-```
+## Card Segmentation
 
-See `docs/Calibration_Report.md` for the complete calibration details.
+The segmentation model uses a U-Net architecture with a ResNet-18 encoder.
 
-## Segmentation Model
+### Model Architecture
 
-A U-Net-style image segmentation architecture with a ResNet-18 encoder is implemented using PyTorch.
+- Architecture: U-Net
+- Encoder: ResNet-18
+- Framework: PyTorch
+- Task: Binary image segmentation
+- Output: Playing card segmentation mask
 
-The model predicts a binary segmentation mask identifying the playing card in an input image.
+### Segmentation Results
 
-### Model Weights Verification
-
-Model checkpoint:
-
-```text
-weights/best_card_segmentation.pth
-```
-
-SHA-256 checksum:
-
-```text
-0a58d4004894c04b7f2ec29e76bdc27d66f1690970578eef8dd54c22526e4a1f
-```
-
-### Held-out Test Results
+Evaluation was performed on 9 test images.
 
 | Metric | Result |
 |---|---:|
 | IoU | 0.9811 |
 | Precision | 0.9935 |
 | Recall | 0.9874 |
-| Dice | 0.9905 |
-| mAP@0.5 | Not reported |
-| mAP@0.5:0.95 | Not reported |
+| Dice Score | 0.9905 |
+| mAP@0.5 | 1.0000 |
+| mAP@0.5:0.95 | 1.0000 |
 
-The reported values are the available segmentation evaluation results. mAP metrics have not been provided and should not be interpreted as measured results.
+All 9 test images produced detected masks with no missed predictions.
 
-## Measurement Pipeline
+Note: The mAP values are based on the project's single-object mask AP evaluation method.
 
-The measurement pipeline combines image processing, segmentation, ArUco detection, and camera calibration.
+### Trained Model
 
-### Processing Steps
+The best trained segmentation model is saved at:
 
-1. Load the input image.
-2. Apply camera undistortion.
-3. Detect and segment the playing card.
-4. Detect the known-size 30 mm ArUco marker.
-5. Estimate the pixel-to-millimetre scale.
-6. Calculate the playing card's width and height in millimetres.
-7. Evaluate measurement reliability.
-8. Generate measurement overlays and output information.
+`weights/best_card_segmentation.pth`
 
-The system also includes reliability checks to reject measurements under unsuitable conditions, such as poor segmentation confidence, incomplete reference markers, excessive camera tilt, or very small detected objects.
+## Measurement Methodology
 
-## Measurement Accuracy Evaluation
+The system uses a known-size ArUco marker as a physical reference.
 
-The system was evaluated against 10 image-based
+- Marker ID: 10
+- Dictionary: DICT_6X6_250
+- Physical marker size: 30 mm
+
+The detected marker provides the reference scale for converting pixel measurements into millimetres.
+
+The segmentation mask is used to estimate the playing card boundary and its dimensions.
+
+## Measurement Evaluation
+
+The system was evaluated against manual reference measurements using 10 images.
+
+Reference card dimensions:
+
+- Width: 57 mm
+- Height: 86 mm
+
+### Measurement Results
+
+| Metric | Width | Height |
+|---|---:|---:|
+| MAE | 3.746 mm | 0.956 mm |
+| Mean Error | -3.746 mm | -0.956 mm |
+| Median Absolute Error | 3.740 mm | 0.895 mm |
+| Worst-case Error | 4.160 mm | 1.310 mm |
+| Mean Percentage Error | 6.5719% | 1.1116% |
+
+### Measurement Analysis
+
+The height measurement shows better accuracy than the width measurement.
+
+The negative mean error indicates that the system underestimates both dimensions.
+
+Width estimation requires further improvement and investigation.
+
+## Reliability Testing
+
+Additional reliability checks were implemented to examine challenging conditions, including:
+
+- Low-confidence detection.
+- Partial marker visibility.
+- High camera tilt.
+- Small card appearance.
+
+The reliability helper passed 5 out of 5 simulated logic tests.
+
+Note: These tests validate the implemented checking logic and should not be interpreted as five separate physical camera experiments.
+
+## Project Structure
+
+```text
+measure_it/
+│
+├── calibration/
+│   └── images/
+│
+├── dataset/
+│   ├── images/
+│   └── masks/
+│
+├── docs/
+│   ├── Calibration_Report.md
+│   ├── Definition_of_Done.md
+│   ├── Objectives.md
+│   ├── Plan.md
+│   └── Testing_Report.md
+│
+├── results/
+│   ├── calibration/
+│   ├── measurement/
+│   └── segmentation/
+│
+├── src/
+│   ├── calibration/
+│   ├── segmentation/
+│   ├── measurement/
+│   └── prepare_dataset_split.py
+│
+├── weights/
+│   └── best_card_segmentation.pth
+│
+├── environment.yml
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+## Technologies Used
+
+- Python
+- OpenCV
+- PyTorch
+- NumPy
+- Pandas
+- Scikit-learn
+- Albumentations
+- Matplotlib
+- Pillow
+- Git and Git LFS
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Zainxhaikh/measure-it.git
+cd measure-it
+```
+
+### 2. Create a Conda environment
+
+```bash
+conda env create -f environment.yml
+```
+
+### 3. Activate the environment
+
+```bash
+conda activate pytorch_env
+```
+
+Alternatively, install dependencies using:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Project Outputs
+
+The project stores generated outputs in the following directories:
+
+- `results/calibration/` — calibration reports and undistortion results.
+- `results/segmentation/` — segmentation metrics, predictions, and training history.
+- `results/measurement/` — annotated measurement images and manual comparison reports.
+
+## Current Limitations
+
+- Width measurements show higher error than height measurements.
+- Measurement accuracy can be affected by marker detection and camera perspective.
+- Evaluation has been performed on a limited dataset.
+- Further testing with different lighting conditions, viewing angles, and additional card samples is needed.
+
+## Future Improvements
+
+- Improve width measurement accuracy.
+- Expand the dataset with more images and variations.
+- Test the system under different lighting and camera angles.
+- Improve robustness against partially visible ArUco markers.
+- Perform additional real-world validation.
+
+## Author
+
+**Zain Ul Abidin**
+
+Computer Science Student  
+Virtual University of Pakistan
+
+GitHub: https://github.com/Zainxhaikh
+
+---
+
+## Project Status
+
+Core camera calibration, segmentation, measurement, and evaluation components have been implemented and tested.
+
+The project includes documented experimental results and identified areas for improvement.

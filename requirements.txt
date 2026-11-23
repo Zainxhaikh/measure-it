@@ -1,104 +1,13 @@
 
-# Measure It: Segment It, Measure It, Prove It
-
-A computer vision project that aims to segment a playing card and estimate its physical dimensions in millimetres using a known-size ArUco marker.
-
-## Project Overview
-
-The system is being developed to:
-
-1. Calibrate a camera using ChArUco images.
-2. Correct lens distortion.
-3. Segment a playing card using a trained segmentation model.
-4. Detect a known-size 30 mm ArUco marker (ID 10, DICT_6X6_250).
-5. Convert pixel measurements into physical dimensions.
-6. Compare automated measurements with manual measurements.
-
-## Dataset
-
-The project uses 83 self-captured images of a 10 of Diamonds playing card.
-
-| Split | Images |
-|---|---:|
-| Training | 58 |
-| Validation | 16 |
-| Testing | 9 |
-| Total | 83 |
-
-The dataset split uses random seed 42. The split lists are stored in `dataset/splits/`.
-
-## Camera Calibration
-
-A ChArUco board with 5 × 7 squares is used for camera calibration.
-
-- Square size: 25 mm
-- Marker size: 18 mm
-- Dictionary: DICT_6X6_250
-
-## Known-Size Reference
-
-A separate ArUco marker is used as the measurement reference.
-
-- Marker ID: 10
-- Dictionary: DICT_6X6_250
-- Physical outer black-square size: 30 mm
-
-## Technology Stack
-
-- Python
-- OpenCV
-- PyTorch
-- NumPy
-- Albumentations
-- scikit-learn
-- Matplotlib
-
-## Project Structure
-
-```text
-measure-it/
-├── calibration/
-│   └── images/
-├── dataset/
-│   ├── images/
-│   ├── masks/
-│   └── splits/
-├── src/
-│   ├── calibration/
-│   ├── segmentation/
-│   └── measurement/
-├── models/
-├── weights/
-├── results/
-├── docs/
-├── README.md
-├── requirements.txt
-└── environment.yml
-```
-
-## Development Status
-
-Initial project documentation and fixed dataset split lists have been prepared.
-
-Camera calibration, segmentation, measurement implementation and validation are pending.
-
-## Setup and Usage
-
-Installation instructions and execution commands will be added as the implementation progresses.
-
-## Hardware
-
-Development environment:
-
-- Operating System: Windows
-- RAM: 16 GB
-- Processor: Intel CPU
-- GPU: No CUDA-enabled GPU available
-- Python: 3.12.16
-- PyTorch: CPU environment
-
-## Evaluation
-
-The project will report segmentation metrics and compare AI-generated measurements with at least 10 manual measurements.
-
-All reported results will be based on actual experiments.
+numpy
+pandas
+matplotlib
+pillow
+scikit-learn
+opencv-contrib-python
+tqdm
+jupyter
+ipykernel
+albumentations
+torch
+torchvision
