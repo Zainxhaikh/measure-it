@@ -1,0 +1,30 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.log
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Model checkpoints
+*.pth
+!weights/*.pth
+*.pt
+
+# Temporary files
+*.tmp
+*.bak

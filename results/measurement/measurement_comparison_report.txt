@@ -1,0 +1,33 @@
+CARD MEASUREMENT COMPARISON REPORT
+==================================================
+Images evaluated: 10
+Reference dimensions: 57 x 86 mm
+
+WIDTH RESULTS
+----------------------------------------
+MAE: 3.7460
+Mean Error: -3.7460
+Median Absolute Error: 3.7400
+Worst-case Error: 4.1600
+Mean Percentage Error: 6.5719
+
+HEIGHT RESULTS
+----------------------------------------
+MAE: 0.9560
+Mean Error: -0.9560
+Median Absolute Error: 0.8950
+Worst-case Error: 1.3100
+Mean Percentage Error: 1.1116
+
+INDIVIDUAL IMAGE COMPARISON
+--------------------------------------------------
+IMG20261119153145.jpg: Width error = 3.61 mm, Height error = 0.81 mm
+IMG20261119153149.jpg: Width error = 4.16 mm, Height error = 1.31 mm
+IMG20261119153149_01.jpg: Width error = 3.98 mm, Height error = 1.10 mm
+IMG20261119153150.jpg: Width error = 3.63 mm, Height error = 0.79 mm
+IMG20261119153153.jpg: Width error = 3.99 mm, Height error = 1.08 mm
+IMG20261119153154.jpg: Width error = 3.85 mm, Height error = 0.79 mm
+IMG20261119153156.jpg: Width error = 3.82 mm, Height error = 1.12 mm
+IMG20261119153157.jpg: Width error = 3.66 mm, Height error = 0.97 mm
+IMG20261119153200.jpg: Width error = 3.38 mm, Height error = 0.77 mm
+IMG20261119153200_01.jpg: Width error = 3.38 mm, Height error = 0.82 mm

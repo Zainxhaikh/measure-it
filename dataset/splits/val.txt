@@ -1,0 +1,16 @@
+dataset/images/IMG20261119153604.jpg
+dataset/images/IMG20261119153739.jpg
+dataset/images/IMG20261119153442.jpg
+dataset/images/IMG20261119153745.jpg
+dataset/images/IMG20261119153758.jpg
+dataset/images/IMG20261119153605_01.jpg
+dataset/images/IMG20261119153359.jpg
+dataset/images/IMG20261119153650.jpg
+dataset/images/IMG20261119153635.jpg
+dataset/images/IMG20261119153412.jpg
+dataset/images/IMG20261119153406.jpg
+dataset/images/IMG20261119153733.jpg
+dataset/images/IMG20261119153756.jpg
+dataset/images/IMG20261119153153.jpg
+dataset/images/IMG20261119153611.jpg
+dataset/images/IMG20261119153205.jpg

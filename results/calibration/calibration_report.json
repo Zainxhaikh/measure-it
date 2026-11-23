@@ -1,0 +1,304 @@
+{
+    "opencv_version": "5.1.0",
+    "image_resolution": {
+        "width": 3072,
+        "height": 4096
+    },
+    "orientation_normalization": "Landscape images rotated 90 degrees clockwise",
+    "board_configuration": {
+        "squares_x": 5,
+        "squares_y": 7,
+        "square_length_mm": 25.0,
+        "marker_length_mm": 18.0
+    },
+    "total_images": 45,
+    "accepted_images": [
+        "IMG20261119110604.jpg",
+        "IMG20261119110615.jpg",
+        "IMG20261119110623.jpg",
+        "IMG20261119110629.jpg",
+        "IMG20261119110639.jpg",
+        "IMG20261119110648.jpg",
+        "IMG20261119110659.jpg",
+        "IMG20261119110709.jpg",
+        "IMG20261119110715.jpg",
+        "IMG20261119110728.jpg",
+        "IMG20261119110741.jpg",
+        "IMG20261119110748.jpg",
+        "IMG20261119110806.jpg",
+        "IMG20261119110814.jpg",
+        "IMG20261119110839.jpg",
+        "IMG20261119110846.jpg",
+        "IMG20261119110851.jpg",
+        "IMG20261119110901.jpg",
+        "IMG20261119110914.jpg",
+        "IMG20261119110922.jpg",
+        "IMG20261119111000.jpg",
+        "IMG20261119111004.jpg",
+        "IMG20261119111009.jpg",
+        "IMG20261119111020.jpg",
+        "IMG20261119111023.jpg",
+        "IMG20261119111026.jpg",
+        "IMG20261119111030.jpg",
+        "IMG20261119111034.jpg",
+        "IMG20261119111038.jpg",
+        "IMG20261119111045.jpg",
+        "IMG20261119111047.jpg",
+        "IMG20261119111049.jpg",
+        "IMG20261119111054.jpg",
+        "IMG20261119111222.jpg",
+        "IMG20261119111231.jpg",
+        "IMG20261119111239.jpg",
+        "IMG20261119111246.jpg",
+        "IMG20261119111252.jpg",
+        "IMG20261119111255.jpg",
+        "IMG20261119111259.jpg",
+        "IMG20261119111303.jpg",
+        "IMG20261119111307.jpg"
+    ],
+    "skipped_images": [
+        "IMG20261119153516.jpg",
+        "IMG20261119153517.jpg",
+        "IMG20261119153520.jpg"
+    ],
+    "accepted_count": 42,
+    "skipped_count": 3,
+    "camera_matrix": [
+        [
+            3236.7845668614145,
+            0.0,
+            1561.0043832748304
+        ],
+        [
+            0.0,
+            3243.7894877037443,
+            2042.9016531287134
+        ],
+        [
+            0.0,
+            0.0,
+            1.0
+        ]
+    ],
+    "distortion_coefficients": [
+        0.4370701950284055,
+        -2.2937535886481615,
+        -0.006405342545434207,
+        0.005769046277241613,
+        3.721449523681447
+    ],
+    "opencv_rms_reprojection_error_pixels": 1.9904982465982415,
+    "mean_point_reprojection_error_pixels": 1.3160456722483984,
+    "per_image_errors": [
+        {
+            "image": "IMG20261119110604.jpg",
+            "mean_error_pixels": 0.671684205532074,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110615.jpg",
+            "mean_error_pixels": 0.614395797252655,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110623.jpg",
+            "mean_error_pixels": 0.6317765116691589,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110629.jpg",
+            "mean_error_pixels": 1.0141969919204712,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110639.jpg",
+            "mean_error_pixels": 1.0192861557006836,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110648.jpg",
+            "mean_error_pixels": 1.799014925956726,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110659.jpg",
+            "mean_error_pixels": 0.6631081104278564,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110709.jpg",
+            "mean_error_pixels": 1.1962836980819702,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110715.jpg",
+            "mean_error_pixels": 0.72287517786026,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110728.jpg",
+            "mean_error_pixels": 1.4557133913040161,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110741.jpg",
+            "mean_error_pixels": 1.0084964036941528,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110748.jpg",
+            "mean_error_pixels": 0.9481642246246338,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110806.jpg",
+            "mean_error_pixels": 1.2351843118667603,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110814.jpg",
+            "mean_error_pixels": 1.0888484716415405,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110839.jpg",
+            "mean_error_pixels": 2.436475992202759,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110846.jpg",
+            "mean_error_pixels": 3.0210628509521484,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110851.jpg",
+            "mean_error_pixels": 1.211936593055725,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110901.jpg",
+            "mean_error_pixels": 0.8417927622795105,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110914.jpg",
+            "mean_error_pixels": 1.3665761947631836,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119110922.jpg",
+            "mean_error_pixels": 0.5565468668937683,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111000.jpg",
+            "mean_error_pixels": 1.985063910484314,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111004.jpg",
+            "mean_error_pixels": 2.1589348316192627,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111009.jpg",
+            "mean_error_pixels": 1.7981592416763306,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111020.jpg",
+            "mean_error_pixels": 0.7317621111869812,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111023.jpg",
+            "mean_error_pixels": 0.347413033246994,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111026.jpg",
+            "mean_error_pixels": 0.6598268151283264,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111030.jpg",
+            "mean_error_pixels": 0.5065491199493408,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111034.jpg",
+            "mean_error_pixels": 0.8479277491569519,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111038.jpg",
+            "mean_error_pixels": 1.5487569570541382,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111045.jpg",
+            "mean_error_pixels": 0.9204395413398743,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111047.jpg",
+            "mean_error_pixels": 0.8476322293281555,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111049.jpg",
+            "mean_error_pixels": 0.7066094279289246,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111054.jpg",
+            "mean_error_pixels": 1.0675134658813477,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111222.jpg",
+            "mean_error_pixels": 3.216900587081909,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111231.jpg",
+            "mean_error_pixels": 3.127626419067383,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111239.jpg",
+            "mean_error_pixels": 3.3856632709503174,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111246.jpg",
+            "mean_error_pixels": 1.7788985967636108,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111252.jpg",
+            "mean_error_pixels": 1.3772315979003906,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111255.jpg",
+            "mean_error_pixels": 0.6141147017478943,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111259.jpg",
+            "mean_error_pixels": 1.3432178497314453,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111303.jpg",
+            "mean_error_pixels": 1.2703217267990112,
+            "corner_count": 24
+        },
+        {
+            "image": "IMG20261119111307.jpg",
+            "mean_error_pixels": 1.5299354791641235,
+            "corner_count": 24
+        }
+    ]
+}
